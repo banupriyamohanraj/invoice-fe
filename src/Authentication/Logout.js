@@ -7,6 +7,7 @@ export default function Logout(){
     let logout=()=>{
         history.push("/")
     }
+    
     useEffect(()=>{
         logout()
     })
