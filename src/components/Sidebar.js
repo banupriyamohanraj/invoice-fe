@@ -1,10 +1,18 @@
 import {
-    Link
+    Link,Redirect
   } from "react-router-dom"
-  
+  import { useContext } from "react"
+  import userContext from "../userContext/userContext"
   
   
   export default function Sidebar() {
+    let userdata= useContext(userContext)
+
+    if(!userdata.userLoggedIn){
+      return <Redirect to="/"/>
+    }
+
+
     return <>
       <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
   

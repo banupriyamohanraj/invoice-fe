@@ -3,7 +3,7 @@ import UserContext from "../userContext/userContext"
 import DatePicker from 'react-date-picker';
 import Moment from 'react-moment';
 import moment from 'moment'
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 
 
 export default function Dashboard() {
@@ -36,7 +36,9 @@ export default function Dashboard() {
         fetchdata();
     },[date])
 
-console.log(data)
+    if(!userdata.userLoggedIn){
+        return <Redirect to='/'/>
+    }
 
     return <>
         <div className="container m-0" >

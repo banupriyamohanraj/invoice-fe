@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import easyinvoice from 'easyinvoice';
+import { Redirect } from "react-router";
+import UserContext from "../userContext/userContext";
 
 export default function RenderInvoice(props) {
-    console.log(props)
+
+    let userData = useContext(UserContext)
+  
     let id = props.match.params.id
 let [ invoicedata,setinvoicedata] = useState([]);
     
@@ -23,7 +27,7 @@ let [ invoicedata,setinvoicedata] = useState([]);
                 })
         }
        fetchdata();
-    },[id])
+    })
 
     
 
@@ -81,7 +85,9 @@ return data;
 })
 
 
-
+    if(!userData.userLoggedIn){
+        return <Redirect to="/"/>
+    }
 
 
     return <>

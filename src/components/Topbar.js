@@ -1,10 +1,13 @@
 import { useContext } from "react"
 import UserContext from "../userContext/userContext"
-import { Link } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
+
 
 export default function Topbar() {
 
     let userData = useContext(UserContext);
+ 
+    
 
     return <>
         <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -27,17 +30,16 @@ export default function Topbar() {
                 </div>
             </form>
 
+            
 
-
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {userData.userlist.firstname} {userData.userlist.lastname}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <Link to='/logout'class="dropdown-item" >Logout</Link>
-                 
-                </div>
-            </div>
+           <p>{userData.userlist.firstname} {userData.userlist.lastname}</p>
+           <button type="button" className="btn btn-secondary" onClick={()=>{
+            userData.setuserLoggedIn(false)
+            if(!userData.userLoggedIn){
+                return <Redirect to="/"/>
+            }
+           }}>Logout</button>
+           
         </nav>
     </>
 }

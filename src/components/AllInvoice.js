@@ -1,22 +1,24 @@
 import {  useEffect, useState } from "react"
 import { useContext } from "react";
-import UserContext from "../userContext/userContext";
+import userContext from "../userContext/userContext";
 
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 
 
 export default function AllInvoice() {
   
-    let Invoicelist = useContext(UserContext)
+    let Invoicelist = useContext(userContext)
 
     let [invoices, setInvoices] = useState([])
-
+ 
     useEffect(() => {
         async function fetchdata(){
+         
             await fetch('https://invoice-backendapp.herokuapp.com/invoice/list')
             .then(res => {
                 return res.json();
             }).then((data) => {
+              
                 setInvoices(data)
                 Invoicelist.setinvoicelist([data])
                
@@ -25,6 +27,12 @@ export default function AllInvoice() {
       
         fetchdata();
     }, [Invoicelist])
+
+
+
+    if(!Invoicelist.userLoggedIn){
+        return <Redirect to="/"/>
+    }
 
     return <>
         <div className="container">

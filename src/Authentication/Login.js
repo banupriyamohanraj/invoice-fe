@@ -11,7 +11,7 @@ export default function Login() {
 
     let [email, setemail] = useState('');
     let [password, setpassword] = useState('');
-
+    let [loading,setloading] = useState(false)
     let userData = useContext(UserContext)
     let history = useHistory();
     toast.configure()
@@ -19,6 +19,7 @@ export default function Login() {
 
     let UserSubmit = async (e) => {
         e.preventDefault()
+        setloading(true)
         await fetch('https://invoice-backendapp.herokuapp.com/auth/login', {
             method: "POST",
             body: JSON.stringify({
@@ -32,9 +33,11 @@ export default function Login() {
             .then(res => {
                 return res.json();
             }).then((data) => {
+                setloading(true)
                 //passing userdata to other components
                 userData.setuserlist(data.data)
                 console.log(userData)
+                userData.setuserLoggedIn(true)
 
                 //notifying user
                 let mesg = data.message
@@ -49,7 +52,7 @@ export default function Login() {
 
     }
 
-    
+    if(loading) return <div>Loading...Please wait</div>
 
     return <>
         <div className='container'>

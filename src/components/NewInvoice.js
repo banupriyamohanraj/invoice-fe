@@ -1,11 +1,12 @@
 import { useContext, useState } from "react"
-import UserContext from "../userContext/userContext";
 import 'react-toastify/dist/ReactToastify.css';
 import easyinvoice from 'easyinvoice';
+import userContext from "../userContext/userContext";
+import { Redirect } from "react-router";
 
 export default function NewInvoice() {
     //userdata
-    let userData = useContext(UserContext);
+    let userData = useContext(userContext);
     let user = userData.userlist
     let [count, setcounter] = useState(1)
     //tablerow
@@ -100,7 +101,9 @@ export default function NewInvoice() {
         })
     }
 
-
+    if(!userData.userLoggedIn){
+        return <Redirect to="/"></Redirect>
+    }
 
 
     return <>
