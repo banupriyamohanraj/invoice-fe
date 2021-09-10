@@ -11,7 +11,7 @@ export default function Registration() {
     let [lastname, setlastname] = useState('')
     let [email, setemail] = useState('')
     let [password, setpassword] = useState('')
-    let [user,setUser]=useState('');
+    let [username,setUsername]=useState('');
 
 
     let history = useHistory();
@@ -27,7 +27,7 @@ export default function Registration() {
                 lastname,
                 password,
                 status,
-                user
+                username
             }),
             headers: {
                 "content-type": "application/json"
@@ -79,7 +79,7 @@ console.log(user)
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Type of User</label>
-                                    <select class="form-control" id="exampleFormControlSelect1"value={user} onChange={(e)=>{setUser(e.target.value)}}>
+                                    <select class="form-control" id="exampleFormControlSelect1"value={username} onChange={(e)=>{setUsername(e.target.value)}}>
                             
                                         <option>Admin</option>
                                         <option>Manager</option>
