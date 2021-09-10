@@ -37,8 +37,6 @@ export default function AllInvoice() {
     return <>
         <div className="container">
             <div className="row">
-
-
                 {
                 invoices.map((obj) => {
 
