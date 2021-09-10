@@ -22,12 +22,13 @@ export default function Registration() {
         await fetch("https://invoice-backendapp.herokuapp.com/auth/register", {
             method: "POST",
             body: JSON.stringify({
+                username,
                 email,
                 firstname,
                 lastname,
                 password,
-                status,
-                username
+                status
+                
             }),
             headers: {
                 "content-type": "application/json"
