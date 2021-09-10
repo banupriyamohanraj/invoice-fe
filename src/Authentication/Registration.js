@@ -45,7 +45,7 @@ export default function Registration() {
             console.log("Error Reading data " + err);
         });
     }
-console.log(user)
+
 
     return <>
         <div className='container'>
