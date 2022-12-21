@@ -27,7 +27,7 @@ let [ invoicedata,setinvoicedata] = useState([]);
                 })
         }
        fetchdata();
-    },[])
+    },[id])
 
     
 
