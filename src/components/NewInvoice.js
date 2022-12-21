@@ -88,7 +88,7 @@ export default function NewInvoice() {
 
         });
 
-        await fetch("https://invoice-backendapp.herokuapp.com/invoice/createinvoice", {
+        await fetch("https://invoice-backend-ecru.vercel.app/invoice/createinvoice", {
             method: "POST",
             body: JSON.stringify({companyname,address,email,phno,type,clientcompanyname,clientaddress,clientemail,invoiceno,invoicedate,duedate,row,user}),
             headers: {

@@ -14,7 +14,7 @@ export default function Resetpassword(props) {
     let history = useHistory();
     let UserSubmit = async (e) => {
         e.preventDefault()
-         await fetch("https://invoice-backendapp.herokuapp.com/auth/newpassword", {
+         await fetch("hhttps://invoice-backend-ecru.vercel.app/auth/newpassword", {
             method: "POST",
             body: JSON.stringify({
                 password, token

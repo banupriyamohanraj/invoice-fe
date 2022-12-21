@@ -10,7 +10,7 @@ export default function Forgotpassword(){
     let UserSubmit = async (e) => {
         e.preventDefault()
 
-        await fetch('https://invoice-backendapp.herokuapp.com/auth/passwordreset', {
+        await fetch('https://invoice-backend-ecru.vercel.app/auth/passwordreset', {
             method: "PUT",
             body: JSON.stringify({
                 email

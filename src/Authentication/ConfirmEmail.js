@@ -16,7 +16,7 @@ export default function ConfirmEmail(props){
     console.log(status)
    const confirm = async()=>{
 
-   await fetch("https://invoice-backendapp.herokuapp.com/auth/confirm",{
+   await fetch("https://invoice-backend-ecru.vercel.app/auth/confirm",{
         method: "PUT",
         body: JSON.stringify({
             status,confirmationcode

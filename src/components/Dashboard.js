@@ -17,7 +17,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         async function fetchdata() {
-            await fetch('https://invoice-backendapp.herokuapp.com/invoice/userinvoice', {
+            await fetch('https://invoice-backend-ecru.vercel.app/invoice/userinvoice', {
                 method: "POST",
                 body: JSON.stringify({
                     date

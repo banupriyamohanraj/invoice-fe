@@ -12,7 +12,7 @@ let [ invoicedata,setinvoicedata] = useState([]);
     
     useEffect( () => {
         async function fetchdata(){
-            await fetch(`https://invoice-backendapp.herokuapp.com/invoice/list/${id}`, {
+            await fetch(`https://invoice-backend-ecru.vercel.app/invoice/list/${id}`, {
                 method: "POST",
                 body: JSON.stringify({ id }),
                 headers: {
@@ -27,7 +27,7 @@ let [ invoicedata,setinvoicedata] = useState([]);
                 })
         }
        fetchdata();
-    })
+    },[])
 
     
 

@@ -20,7 +20,7 @@ export default function Login() {
     let UserSubmit = async (e) => {
         e.preventDefault()
         setloading(true)
-        await fetch('https://invoice-backendapp.herokuapp.com/auth/login', {
+        await fetch('https://invoice-backend-ecru.vercel.app/auth/login', {
             method: "POST",
             body: JSON.stringify({
                 email,

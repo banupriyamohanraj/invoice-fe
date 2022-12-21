@@ -13,7 +13,7 @@ export default function AllInvoice() {
     useEffect(() => {
         async function fetchdata(){
          
-            await fetch('https://invoice-backendapp.herokuapp.com/invoice/list')
+            await fetch('https://invoice-backend-ecru.vercel.app/invoice/list')
             .then(res => {
                 return res.json();
             }).then((data) => {
